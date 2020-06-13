@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 export default function SearchTodo({ searchTodo, searchText }) {
   return (
@@ -15,7 +15,7 @@ export default function SearchTodo({ searchTodo, searchText }) {
             required
           />
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 }

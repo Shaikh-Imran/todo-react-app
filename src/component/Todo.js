@@ -3,8 +3,11 @@ import React from "react";
 export default function Todo(props) {
   return (
     <tr className="todos">
-      <td>1</td>
-      <td className="text-center">
+      <td>{props.index}</td>
+      <td
+        className="text-center"
+        onClick={() => props.toggleCompleted(props.todo.id)}
+      >
         <input
           type="checkbox"
           name="completed"

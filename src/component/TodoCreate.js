@@ -31,7 +31,10 @@ export default class TodoCreate extends Component {
               />
             </div>
             <div className="col-2 text-center">
-              <button type="submit" className="btn btn-primary mb-2">
+              <button
+                type="submit"
+                className="btn btn-primary btn-circle  mb-2"
+              >
                 <i className="fa fa-plus" aria-hidden="true"></i>
               </button>
             </div>

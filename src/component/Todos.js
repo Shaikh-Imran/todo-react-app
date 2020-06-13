@@ -7,21 +7,20 @@ export default class Todos extends Component {
   state = {
     filterTodos: [],
     searchText: "",
-    todos: [
-      {
-        id: 1,
-        text: "A sample TODO",
-        isCompleted: false,
-      },
-    ],
+    todos: [],
   };
 
+  componentDidMount() {
+    this.addTodo("Sample TODO");
+  }
+
   addTodo = (todo) => {
+    const id = new Date().getTime();
     this.setState({
       todos: [
         ...this.state.todos,
         {
-          id: this.state.todos.length + 1,
+          id: id,
           text: todo,
           isCompleted: false,
         },
@@ -34,6 +33,7 @@ export default class Todos extends Component {
     this.setState({
       todos: this.state.todos.map((todo) => {
         if (todo.id !== todoId) return todo;
+
         return {
           ...todo,
           isCompleted: !todo.isCompleted,
@@ -44,8 +44,9 @@ export default class Todos extends Component {
 
   editTodo = (todoId) => {
     const todo = this.state.todos.filter((todo) => todo.id === todoId);
-    const oldTodoText = todo[0].text;
+    const oldTodoText = todo[0].text.toString();
     const newTodoText = prompt("Please Edit the TODO", oldTodoText);
+
     this.setState({
       todos: this.state.todos.map((todo) => {
         if (todo.id !== todoId) return todo;
@@ -57,6 +58,7 @@ export default class Todos extends Component {
       searchText: "",
     });
   };
+
   deleteTodo = (todoId) => {
     this.setState({
       todos: this.state.todos.filter((todo) => todo.id !== todoId),
@@ -79,7 +81,7 @@ export default class Todos extends Component {
     });
   };
 
-  renderTodos = () => {
+  todosToRender = () => {
     return this.state.searchText === ""
       ? this.state.todos
       : this.state.filterTodos;
@@ -103,10 +105,7 @@ export default class Todos extends Component {
         <div className="col-12 table-responsive">
           <table className="table table-hover">
             <thead>
-              <tr
-                scope="row"
-                className="table-head text-center table-secondary"
-              >
+              <tr className="table-head text-center table-secondary">
                 <th scope="col">#</th>
                 <th scope="col">
                   <i className="fa fa-check" aria-hidden="true"></i>
@@ -121,10 +120,11 @@ export default class Todos extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.renderTodos().length === 0 && <h1>No Todos</h1>}
-              {this.renderTodos().map((todo) => (
+              {this.todosToRender().length === 0 && <h1>No Todos</h1>}
+              {this.todosToRender().map((todo, index) => (
                 <Todo
                   key={todo.id}
+                  index={index + 1}
                   todo={todo}
                   toggleCompleted={this.toggleCompleted}
                   editTodo={this.editTodo}
