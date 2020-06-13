@@ -10,18 +10,7 @@ export default class Todos extends Component {
     todos: [
       {
         id: 1,
-        text:
-          "some todos some todos ASJDFHASDFHPOASDHFOPAKS DHFOASHDF;OKASHD FPOAJSHD FOAHS DFPOJAH SDOJHPAOSDFHAKSDHFPAOSDHFP POH POASHDFPOAISHDFPOA SHDIFUHASDKJFHASUDYFGASKJDFASDFG HJFHAHSDGFHASD",
-        isCompleted: false,
-      },
-      {
-        id: 2,
-        text: "some todos some todos",
-        isCompleted: true,
-      },
-      {
-        id: 3,
-        text: "some todos some todos",
+        text: "A sample TODO",
         isCompleted: false,
       },
     ],
@@ -100,10 +89,10 @@ export default class Todos extends Component {
     return (
       <div className="row">
         <div className="col-12 row">
-          <div className="col-sm-12 col-md-12 col-lg-6">
+          <div className="col-sm-12 col-md-12 col-lg-8">
             <TodoCreate addTodo={this.addTodo} />
           </div>
-          <div className="col-sm-12 col-md-12 col-lg-6">
+          <div className="col-sm-12 col-md-12 col-lg-4 pr-0">
             <SearchTodo
               searchText={this.state.searchText}
               searchTodo={this.searchTodo}
@@ -114,7 +103,10 @@ export default class Todos extends Component {
         <div className="col-12 table-responsive">
           <table className="table table-hover">
             <thead>
-              <tr scope="row" className="table-head text-center">
+              <tr
+                scope="row"
+                className="table-head text-center table-secondary"
+              >
                 <th scope="col">#</th>
                 <th scope="col">
                   <i className="fa fa-check" aria-hidden="true"></i>

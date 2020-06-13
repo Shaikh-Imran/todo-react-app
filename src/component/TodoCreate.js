@@ -19,7 +19,7 @@ export default class TodoCreate extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group row">
-            <div className="col-sm-10">
+            <div className="col-9">
               <input
                 type="text"
                 name="text"
@@ -30,9 +30,9 @@ export default class TodoCreate extends Component {
                 required
               />
             </div>
-            <div className="col-sm-2">
+            <div className="col-2 text-center">
               <button type="submit" className="btn btn-primary mb-2">
-                ADD
+                <i className="fa fa-plus" aria-hidden="true"></i>
               </button>
             </div>
           </div>

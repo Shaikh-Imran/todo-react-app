@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default function SearchTodo({ searchTodo, searchText }) {
   return (
     <div>
-      <div className="form-group row">
+      <div className="form-group row mr-0">
         <div className="col-sm-12">
           <input
             type="text"
